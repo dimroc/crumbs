@@ -38,3 +38,5 @@ config :crumbs, Crumbs.Repo,
   database: "crumbs_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :tirexs, uri: URI.parse("http://localhost:9200")
