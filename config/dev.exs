@@ -39,4 +39,4 @@ config :crumbs, Crumbs.Repo,
   hostname: "localhost",
   pool_size: 10
 
-config :tirexs, uri: URI.parse("http://localhost:9200")
+import_config "environment.exs"

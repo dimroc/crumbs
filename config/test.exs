@@ -17,3 +17,5 @@ config :crumbs, Crumbs.Repo,
   database: "crumbs_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+import_config "environment.exs"
