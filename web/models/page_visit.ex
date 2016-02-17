@@ -1,14 +1,12 @@
 defmodule Crumbs.PageVisit do
-  require Tirexs.Mapping
-  alias Tirexs.Mapping
-  require Tirexs.ElasticSearch
+  require Tirexs.{Mapping,ElasticSearch}
 
   #@derive [Access]
   defstruct [:id, :projectId, :referrer, :href, :pathname, :host, :hash, :port, :createdAt]
 
   def index do
     index = [index: index_name, type: "pagevisit"]
-    Mapping.mappings do
+    Tirexs.Mapping.mappings do
       indexes "id", type: "string", index: "not_analyzed"
       indexes "projectId", type: "string", index: "not_analyzed"
       indexes "referrer", type: "string"
