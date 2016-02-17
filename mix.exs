@@ -32,6 +32,7 @@ defmodule Crumbs.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
+      {:dialyxir, "~> 0.3", only: [:dev]},
       {:ex_machina, github: "thoughtbot/ex_machina"},
       {:gettext, "~> 0.9"},
       {:phoenix, "~> 1.1.4"},

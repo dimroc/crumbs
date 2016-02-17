@@ -22,6 +22,7 @@ defmodule Crumbs.PageVisit do
   end
 
   # values being keywords
+  @spec visit(list) :: list
   def visit(values) do
     import Tirexs.Bulk
     settings = Tirexs.ElasticSearch.config()
