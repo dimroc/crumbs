@@ -12,8 +12,6 @@ config :logger, level: :warn
 # Configure your database
 config :crumbs, Crumbs.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "crumbs_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
