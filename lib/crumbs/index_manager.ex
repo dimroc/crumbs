@@ -1,14 +1,26 @@
 defmodule Crumbs.IndexManager do
+  require Tirexs.ElasticSearch
   require Tirexs.Mapping
   alias Tirexs.Mapping
 
   def create! do
-    Enum.map([
-      Crumbs.PageVisit
-    ], &create_index_for/1)
+    Enum.map(index_classes, &create_index_for/1)
+  end
+
+  def destroy! do
+    settings = Tirexs.ElasticSearch.config()
+    Enum.map(index_classes, fn(indexee) ->
+      Tirexs.ElasticSearch.delete(indexee.index_name, settings)
+    end)
   end
 
   defp create_index_for(indexee) do
     { :ok, status, body } = Mapping.create_resource(indexee.index)
+  end
+
+  defp index_classes do
+    [
+      Crumbs.PageVisit
+    ]
   end
 end
